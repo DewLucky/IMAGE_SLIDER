@@ -16,14 +16,16 @@ function App() {
   return (
     <>
       <div className="carousel">
-        <div className="img-wrapper">
-          <h2>Image {index + 1}</h2>
+        {images.map( (image) => (
           <img
-            className="sliding-img"
-            alt="Image List item"
-            src={images[index].path}
-          />
-        </div>
+          className="sliding-img"
+          alt="Image List item"
+          src={image.path}
+          style={{
+            transform: `translateX(${index*(-100)}%)`,
+          }}
+        />
+        ) )}
       </div>
       <button id="slide-left" onClick={slideLeft}>left</button>
       <button id="slide-right" onClick={slideRight}>right</button>
